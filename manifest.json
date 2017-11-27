@@ -25,7 +25,7 @@
   "browser_action": {
     "default_title": "",
     
-    "default_popup": "Vinno.html"
+    "default_popup": "formular.html"
   }
 
 }
