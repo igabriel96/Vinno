@@ -26,23 +26,14 @@ li a:hover {
     background-color: #111;
 }
 </style>
-<script >
-  function first(){
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-    console.log(response.farewell);
-  });
-});
-  }
-</script>
 </head>
 <body>
 
 <ul>
   <li><a href="add_adnotation.html" >Add adnotation</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a href="show_adnotation.html">Show adnotation</a></li>
+  <li><a href="management_adnotations.html">Management adnotations</a></li>
+  <li><a href="export_adnotations.html">Export adnotations</a></li>
 </ul>
 
 </body>
