@@ -47,7 +47,6 @@ article {
   font-size: 13px;
   font-weight: 300;
   line-height: 24px;
-  -moz-hyphens: auto;
   hyphens: auto;
 }
 h1, h2, h3 {
@@ -195,4 +194,3 @@ article > section:first-of-type a[property="sa:roleAffiliation"] {
   font-size: 12px;
   vertical-align: super;
 }
-*/
