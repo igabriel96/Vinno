@@ -194,3 +194,10 @@ article > section:first-of-type a[property="sa:roleAffiliation"] {
   font-size: 12px;
   vertical-align: super;
 }
+img{
+  display: block;
+  margin:0 auto;
+}
+figcaption{
+  text-align: center;
+}
