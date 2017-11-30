@@ -6,7 +6,7 @@ Video Annotation Tool
 * Jitca Beniamin
 
 <hr>
-  <p>
+  <p align="center">
     <img src="Design/Itachi.png" width="350"/>
   </p> 
 <hr>
