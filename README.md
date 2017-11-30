@@ -7,7 +7,7 @@ Video Annotation Tool
 
 <hr>
   <p>
-    <img src="Design/Itachi.png">
-  </p>
+    <img src="Design/Itachi.png" width="350"/>
+  </p> 
 <hr>
 
