@@ -22,3 +22,18 @@ chrome.tabs.query({active: true}, function(tabs) {
     code: 'document.URL'
   }, display_h1);
 });
+function saveAnnotation() {
+ // Get a value saved in a form. 
+ // Check that there's some code there.
+console.log(document.getElementById("name_annotation").value);
+ if (!url) { 
+message('Error: No value specified');
+ return; }
+ // Save it using the Chrome extension storage API.
+ chrome.storage.sync.set({url: theValue}, function() {
+ // Notify that we saved. 
+message('Settings saved');
+});
+ }
+
+
