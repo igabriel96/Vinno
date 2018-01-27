@@ -1,4 +1,6 @@
+
 var tab_title = '';
+var URL =''
 
 function display_h1 (results) {
   source = document.getElementById('video');
@@ -7,7 +9,7 @@ function display_h1 (results) {
   var url = results[0];
   // var url="https://www.youtube.com/embed/MtJ0lrIGSAE"
   var url = url.replace("watch?v=", "embed/");
-
+  URL=url
   if (url.indexOf('www.youtube') !== -1) {
     //daca link-ul este unul de youtube
     source.setAttribute('src', url);
@@ -15,9 +17,14 @@ function display_h1 (results) {
     source.setAttribute('src', url);
     source.setAttribute('src', "https://vimeo.com/channels/staffpicks/194312144");
   }else {
-	   source.setAttribute('src', "https://www.youtube.com/watch?v=MtJ0lrIGSAE");
+     source.setAttribute('src', "https://www.youtube.com/watch?v=MtJ0lrIGSAE");
   }
 }
+//add handler for submit button
+document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('button').addEventListener('click', saveAnnotation);
+    });
+
 
 chrome.tabs.query({active: true}, function(tabs) {
   var tab = tabs[0];
@@ -30,51 +37,24 @@ chrome.tabs.query({active: true}, function(tabs) {
 function saveAnnotation() {
   // Get a value saved in a form.
   // Check that there's some code there.
-  console.log(document.getElementById("name_annotation").value);
-  if (!url) {
-    message('Error: No value specified');
-    return;
-  }
 
-  // Save it using the Chrome extension storage API.
-  chrome.storage.sync.set({url: 'theValue'}, function() {
-    // Notify that we saved.
-
-    message('Settings saved');
-  });
-}
-
-//////////////////
-function save() {
   var annotationObject = {
       'annotation_name': document.getElementById('annotation_name').value,
       'tags': document.getElementById('tags').value,
       'geo_cord': document.getElementById('geo_cord').value,
-      'video_links': document.getElementById('video_links').value,
+      'link': document.getElementById('link').value,
       'notes': document.getElementById('notes').value,
   };
 
-  chrome.storage.sync.set({'annotation_name': annotationObject['annotation_name'],
-                           'tags': annotationObject['tags'],
-                           'geo_cord': annotationObject['geo_cord'],
-                           'video_links': annotationObject['video_links'],
-                           'notes': annotationObject['notes']}, function() {
-     console.log('Settings saved');
-  });
 
-  chrome.storage.sync.get(['annotation_name', 'tags', 'geo_cord', 'video_links', 'notes'], function(items) {
+  // Save it using the Chrome extension storage API.
+  chrome.storage.sync.set({[URL]:annotationObject}, function() {
+    // Notify that we saved.
+
+    console.log('Settings saved');
+  });
+    chrome.storage.sync.get([URL], function(items) {
       console.log('Settings retrieved', items);
   });
 }
 
-document.getElementById('submit').onclick = save;
-////////
-
-
-chrome.storage.sync.set({'foo': 'hello', 'bar': 'hi'}, function() {
-   console.log('Settings saved');
-});
-
-chrome.storage.sync.get(['foo', 'bar'], function(items) {
-  console.log('Settings retrieved', items);
-});
