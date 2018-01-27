@@ -37,8 +37,44 @@ function saveAnnotation() {
   }
 
   // Save it using the Chrome extension storage API.
-  chrome.storage.sync.set({url: theValue}, function() {
+  chrome.storage.sync.set({url: 'theValue'}, function() {
     // Notify that we saved.
+
     message('Settings saved');
   });
 }
+
+//////////////////
+function save() {
+  var annotationObject = {
+      'annotation_name': document.getElementById('annotation_name').value,
+      'tags': document.getElementById('tags').value,
+      'geo_cord': document.getElementById('geo_cord').value,
+      'video_links': document.getElementById('video_links').value,
+      'notes': document.getElementById('notes').value,
+  };
+
+  chrome.storage.sync.set({'annotation_name': annotationObject['annotation_name'],
+                           'tags': annotationObject['tags'],
+                           'geo_cord': annotationObject['geo_cord'],
+                           'video_links': annotationObject['video_links'],
+                           'notes': annotationObject['notes']}, function() {
+     console.log('Settings saved');
+  });
+
+  chrome.storage.sync.get(['annotation_name', 'tags', 'geo_cord', 'video_links', 'notes'], function(items) {
+      console.log('Settings retrieved', items);
+  });
+}
+
+document.getElementById('submit').onclick = save;
+////////
+
+
+chrome.storage.sync.set({'foo': 'hello', 'bar': 'hi'}, function() {
+   console.log('Settings saved');
+});
+
+chrome.storage.sync.get(['foo', 'bar'], function(items) {
+  console.log('Settings retrieved', items);
+});
