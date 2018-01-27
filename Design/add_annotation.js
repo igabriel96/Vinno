@@ -53,7 +53,5 @@ function saveAnnotation() {
 
     console.log('Settings saved');
   });
-    chrome.storage.sync.get([URL], function(items) {
-      console.log('Settings retrieved', items);
-  });
+  window.location="popup.html";
 }
