@@ -1,6 +1,6 @@
 
 var tab_title = '';
-var URL = '';
+var URL =''
 
 function display_h1 (results) {
   source = document.getElementById('video');
@@ -20,11 +20,11 @@ function display_h1 (results) {
      source.setAttribute('src', "https://www.youtube.com/watch?v=MtJ0lrIGSAE");
   }
 }
-
 //add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('button').addEventListener('click', saveAnnotation);
-});
+      document.querySelector('button').addEventListener('click', saveAnnotation);
+    });
+
 
 chrome.tabs.query({active: true}, function(tabs) {
   var tab = tabs[0];
@@ -37,6 +37,7 @@ chrome.tabs.query({active: true}, function(tabs) {
 function saveAnnotation() {
   // Get a value saved in a form.
   // Check that there's some code there.
+  console.log(URL);
 
   var annotationObject = {
       'annotation_name': document.getElementById('annotation_name').value,
@@ -53,5 +54,5 @@ function saveAnnotation() {
 
     console.log('Settings saved');
   });
-  window.location="popup.html";
+   window.location="popup.html";
 }
