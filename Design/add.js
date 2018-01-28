@@ -22,7 +22,7 @@ function display_h1 (results) {
 
 //add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('button').addEventListener('click', saveAnnotation);
+  document.getElementById('submit').addEventListener('click', saveAnnotation);
 });
 
 chrome.tabs.query({active: true}, function(tabs) {
@@ -42,7 +42,17 @@ function saveAnnotation() {
       'notes': document.getElementById('notes').value,
   };
 
+  localStorage.setItem('annotation_name', annotationObject['annotation_name']);
+  localStorage.setItem('tags', annotationObject['tags']);
+  localStorage.setItem('geo_cord', annotationObject['geo_cord']);
+  localStorage.setItem('link', annotationObject['link']);
+  localStorage.setItem('notes', annotationObject['notes']);
+/*
   var annotationData = JSON.stringify(annotationObject);
-  localStorage.setItem(annotationObject, annotationData);
+  localStorage.setItem(annotationObject + "-" + index, annotationData);
+  index = index + 1;
+*/
+
+  window.location = "popup.html";
 
 }

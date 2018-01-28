@@ -1,33 +1,20 @@
-var tab_title = '';
-var URL = '';
 
-function deleteAnnotation(results) {
-  URL = results[0];
-  URL = URL.replace("watch?v=", "embed/");
+function deleteAnnotation() {
+  var annotation_name = localStorage.getItem('annotation_name');
+  var tags = localStorage.getItem('tags');
+  var geo_cord = localStorage.getItem('geo_cord');
+  var link = localStorage.getItem('link');
+  var notes = localStorage.getItem('notes');
 
-chrome.storage.sync.get([URL], function(items) {
-  item = items[[URL]];
-  chrome.storage.sync.remove([item["annotation_name"], item["tags"],
-     item["geo_cord"], item["link"], item["notes"]], function() {
-       var error = chrome.runtime.lastError;
-       if (error) {
-         console.log(error);
-         alert("Delete");
-       }
-     });
-  });
+  localStorage.removeItem('annotation_name');
+  localStorage.removeItem('tags');
+  localStorage.removeItem('geo_cord');
+  localStorage.removeItem('link');
+  localStorage.removeItem('notes');
 
 }
 
 //add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('delete').addEventListener('click', deleteAnnotation);
-});
-
-chrome.tabs.query({active: true}, function(tabs) {
-  var tab = tabs[0];
-  tab_title = tab.title;
-  chrome.tabs.executeScript(tab.id, {
-    code: 'document.URL'
-  }, deleteAnnotation);
 });

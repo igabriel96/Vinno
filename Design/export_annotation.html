@@ -6,46 +6,34 @@
         <title>Export Annotation</title>
         <style>
             div {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
                 background-color: #333;
-                width: 200px;
-                height: 70px;
-                display: flex;
-                align-items: center;
+                top: 0;
+                left: 0;
+                font-size: 13px;
+                width: 300px;
+                padding: 25px;
+                margin: 5px;
                 text-align: center;
-                justify-content: center;
             }
 
-            li {
-                float: left;
-                list-style-type: none;
-            }
-
-            li a {
-                display: inline-block;
+            p {
                 color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
+                font-size: 15px;
             }
-
-            li a:hover {
-                background-color: #111;
-            }
-
         </style>
     </head>
 
     <body>
         <div>
-            <ul>
-              <li><button onclick="json()">JSON</button></li>
-              <li><button onclick="csv()">CSV</button></li>
-              <li><button onclick="xml()">XML</button></li>
-            </ul>
+          <a href="Files\vinno.json" download>
+            <button id="json">JSON</button>
+          </a>
+          <a href="Files\vinno.csv" download>
+            <button id="csv">CSV</button>
+          </a>
+          <a href="Files\vinno.xml" download>
+            <button id="xml">XML</button>
+          </a>
         </div>
 
         <fieldset>
@@ -54,18 +42,6 @@
             </a>
         </fieldset>
 
-        <script type="text/javascript">
-            function json() {
-                alert("Under Development!!! :)");
-            }
-
-            function csv() {
-                alert("Under Development!!! :)");
-            }
-
-            function xml() {
-                alert("Under Development!!! :)");
-            }
-        </script>
+        <script src="export_annotation.js"></script>
     </body>
 </html>
