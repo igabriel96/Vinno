@@ -53,7 +53,7 @@ function export_json()
 	});
 }
 document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('#button_csv').addEventListener('click', export_json);
+      document.querySelector('#button_csv').addEventListener('click', export_csv);
     });
 document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('#button_json').addEventListener('click', export_json);
