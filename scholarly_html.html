@@ -24,7 +24,7 @@
 
       <section id="obiective">
         <h3>Obiective</h3>
-        <p>Instrumentul nostru web  urmarește punerea la dispoziție a utilizatorului posibilitatea de a adăuga adnotări unor resurse video similar cu adnotările care se pot adăuga la video-urile de pe situl https://www.youtube.com. De asemenea, utilizatorul va avea posibilitatea de a exporta adnotările create de acesta în format CSV, JSON și XML.  
+        <p>Instrumentul nostru web  urmarește punerea la dispoziție a utilizatorului posibilitatea de a adăuga adnotări unor resurse video similar cu adnotările care se pot adăuga la video-urile de pe situl https://www.youtube.com. De asemenea, utilizatorul va avea posibilitatea de a exporta adnotările create de acesta în format CSV, JSON și XML si de a avea acces in mediul offline cum si acces la un storage pentru a manageria adnotarile.  
         </p>        
       </section>
 
@@ -46,13 +46,16 @@
             Add Annotation: Utilizatorului i se va pune la dispoziție un meniu cu posibilitățile de a adăuga adnotări.
           </li>
           <li>
+            Show Annotation: Utilizatorul va putea porni vizualizarea adnotărilor.
+          </li>
+          <li>
+            Hide Annotation: Utilizatorul va putea opri vizualizarea adnotărilor.
+          </li>
+          <li>
             Management Annotation: Utilizatorul va putea modifica sau șterge adnotările făcute.
           </li>
           <li>
             Export Annotation: Utilizatorul va putea face export în formatul CSV, JSON și XML.
-          </li>
-          <li>
-            Show Annotation: Utilizatorul va avea acces la adnotările făcute și de asemenea tilizatorul va putea opri sau porni vizualizarea adnotărilor.
           </li>
         </ul>
         <p>În meniul cu adnotări utilizatorul va avea acces la video și va avea următoarele opțiuni, cum ar fi posibilitatea de a adăuga tag-uri, imagini, video-uri etc.</p>
@@ -77,11 +80,30 @@
           </li>
         </ul>
       </section>
+
+      <section id="Implementare">
+        <h3>Mod de implementare</h3>
+        <p>Nucleul proiectului este popup.html care conține meniul aplicației împreuna cu câteva elemente de CSS folosite pentru stilizarea backgroundu-lui.</p>
+        <img src="Capture1.png" id="Icony">
+        <p>Primul href face referire la add_annotation.html care pune la dispoziție un meniu în care se pot adăuga adnotări pe un video din pagină acesta are legat un javascript numit add_annotation.js care preia video-ul din pagina de youtube sau vineo și îl afișează in meniu. De semenea add_annotation.js se ocupa și de salvarea adnotărilor.</p>
+        <img src="Capture2.png" id="Icony">
+        <p>De semenea add_annotation.js se ocupa și de salvarea adnotărilor.</p>
+        <img src="Capture3.png" id="Icony">
+        <p>Al 2-lea href show_annotation.html care este legat cu un javascript numit show_annotation.js unde rolul acestuia este de a afișa adnotarea specifică video-ului. El fuctioneaza pe principiul că va afișa doar dacă s-au făcut adnotări pe pagina respectivă . Respectiv pentru hide_annotation se procedează pe același principiu. Manage annotation se ocupă de ștergerea unei adnotări din local storage.</p>
+        <img src="Capture4.png" id="Icony">
+        <p>Export annotation se ocupa de exportul adnotărilor în diferite formate XML,CSV,JSON funcțiile sunt asemănătoare diferența se observă la concatenări. Mai jos se poate observa o secvență de cod folosită pentru exportul în format CSV</p>
+        <img src="Capture5.png" id="Icony">
+      </section>
+
+
+<section id="Dificultati">
+        <h3>Dificultati</h3>
+        <p>O dificultate majoră a aplicației este de a funcționa pe aparate mobile deoarece noi folosim o extensie cu meniu acestea nu cred că are suport pentru aparate mobile. De asemenea adăugarea și ștergerea de adnotări a fost dificil de realizat dar s-a reușit cu ajutorul unui local storage care permite de asemenea și funcționarea offline.</p>
+      </section>
+
       <section id="descriere">
         <h3>API-uri externe</h3>
-        <p>De asemenea în cadrul echipei s-a luat decizia de a se folosi chrome.storage pentru salvarea adnotărilor.
-        Chrome Storage este un web storage folosit de Chrome, de asemenea web storage-ul permite API-urilor de a stoca date 
-        într-un browser web.
+        <p>În cadrul echipei s-a luat decizia de a se folosi chrome.storage pentru salvarea adnotărilor dar in final acesta se foloseste de local storage.Chrome Storage este un web storage folosit de Chrome, de asemenea web storage-ul permite API-urilor de a stoca date într-un browser web. De asemenea s-a folosit web storage api de la Mozilla tot pentru a se putea folosi local storage dar in cadrul browserului folosit de Mozilla. Web storage api si chrome.storage fiind asemanatoare.
         În cadrul echipei s-a decis folosirea următoarei imagini pentru reprezentarea proiectului.</p>
         
       <figure>
@@ -123,6 +145,10 @@
               <tr>
                 <td>Chrome Storage</td>
                 <td>https://developer.chrome.com/apps/storage</td>
+              </tr>
+              <tr>
+                <td>schema.org/</td>
+                <td>http://schema.org/</td>
               </tr>
             </table>    
       </section>
