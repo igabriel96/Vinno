@@ -1,20 +1,27 @@
 
-function deleteAnnotation() {
-  var annotation_name = localStorage.getItem('annotation_name');
-  var tags = localStorage.getItem('tags');
-  var geo_cord = localStorage.getItem('geo_cord');
-  var link = localStorage.getItem('link');
-  var notes = localStorage.getItem('notes');
+function listAnnotation() {
+  var firstDiv = document.getElementById('manage');
 
-  localStorage.removeItem('annotation_name');
-  localStorage.removeItem('tags');
-  localStorage.removeItem('geo_cord');
-  localStorage.removeItem('link');
-  localStorage.removeItem('notes');
+	for (var index = 0; index < localStorage.length; index++) {
+    check++;
+
+		var key = localStorage.key(index);
+		var adnotare = localStorage.getItem(key);
+		var jsonData = JSON.parse(adnotare);
+
+    var paragragh = document.createElement("p");
+    paragragh.setAttribute('id', 'annotation_' + index);
+    paragragh = document.createTextNode(jsonData.annotation_name);
+    firstDiv.appendChild(paragragh);
+
+    var buton = document.createElement("button");
+    buton.setAttribute('id', 'buton_' + index);
+    button = document.createTextNode("Delete");
+
+  }
 
 }
 
-//add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('delete').addEventListener('click', deleteAnnotation);
+  document.getElementById('listare').addEventListener('click', listAnnotation);
 });
