@@ -13,6 +13,8 @@ function listAnnotation() {
       localStorage.removeItem(key);
     }
   }
+
+  window.location = "popup.html";
 }
 
 document.addEventListener('DOMContentLoaded', function () {
