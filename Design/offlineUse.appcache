@@ -1,0 +1,17 @@
+CACHE MANIFEST
+# v1 
+# This is a comment.
+chrome-extension://kidmagplggmmnjcfmdcjkchdacghifjg/add_annotation.html
+chrome-extension://kidmagplggmmnjcfmdcjkchdacghifjg/show_annotation.html
+chrome-extension://kidmagplggmmnjcfmdcjkchdacghifjg/popup.html
+chrome-extension://kidmagplggmmnjcfmdcjkchdacghifjg/management_annotation.html
+chrome-extension://kidmagplggmmnjcfmdcjkchdacghifjg/export_annotation.html
+
+
+NETWORK:
+popup.html
+show_annotation.html
+management_annotation.html
+hide_annotation.html
+export_annotation.html
+add_annotation.html

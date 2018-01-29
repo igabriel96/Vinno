@@ -4,6 +4,8 @@
     "description": "instrument Web pentru adnotarea conţinuturilor video redate utilizatorului",
 	"version": "0.1",
 	"permissions": [ "activeTab" ,"storage" ],
+  "display": "standalone",
+  "orientation": "landscape",
 	"content_scripts": [
   		{
     		"matches": [
@@ -14,10 +16,13 @@
 	],
 	
 	"icons": { 
-		"16": "Itachi.png",
+		      "16": "Itachi.png",
         	"48": "Itachi.png",
-        	"128": "Itachi.png" 
+        	"128": "Itachi.png",
+          "256": "Itachi.png"
     	},
+
+
 
 	"background": {
   		"scripts": [
