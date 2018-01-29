@@ -1,17 +1,15 @@
-
 var tab_title = '';
 var URL =''
 
 function display_h1 (results) {
   source = document.getElementById('video');
 
-  //console.log(results);
   var url = results[0];
   // var url="https://www.youtube.com/embed/MtJ0lrIGSAE"
   var url = url.replace("watch?v=", "embed/");
-  URL=url
+  URL = url;
+
   if (url.indexOf('www.youtube') !== -1) {
-    //daca link-ul este unul de youtube
     source.setAttribute('src', url);
   }else if (url.indexOf('www.vimeo') !== -1) {
     source.setAttribute('src', url);
@@ -21,10 +19,9 @@ function display_h1 (results) {
   }
 }
 
-//add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
-      document.querySelector('button').addEventListener('click', saveAnnotation);
-    });
+  document.querySelector('button').addEventListener('click', saveAnnotation);
+});
 
 chrome.tabs.query({active: true}, function(tabs) {
   var tab = tabs[0];
@@ -35,8 +32,6 @@ chrome.tabs.query({active: true}, function(tabs) {
 });
 
 function saveAnnotation() {
-  // Get a value saved in a form.
-  // Check that there's some code there.
   console.log(URL);
 
   var annotationObject = {
@@ -49,9 +44,8 @@ function saveAnnotation() {
 
   // Save it using the Chrome extension storage API.
   chrome.storage.sync.set({[URL]:annotationObject}, function() {
-    // Notify that we saved.
-
     console.log('Settings saved');
   });
-   window.location="popup.html";
+
+  window.location = "popup.html";
 }

@@ -136,3 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
 	document.querySelector('#button_xml').addEventListener('click', export_xml);
 });
+
+function meniu() {
+	window.location = "popup.html";
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('back').addEventListener('click', meniu);
+});

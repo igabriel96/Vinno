@@ -11,21 +11,20 @@ function setURLVideo(data) {
 }
 
 function display_h1(results) {
-  source = document.getElementById('video');
+   source = document.getElementById('video');
+   var url = results[0];
+   var url = url.replace("watch?v=", "embed/");
+   URL = url;
 
-  var url = results[0];
-  var url = url.replace("watch?v=", "embed/");
-  URL = url;
-
-  if (url.indexOf('www.youtube') !== -1) {
-    source.setAttribute('src', url);
-    setURLVideo(url.replace("embed/", "watch?v="));
-  }else if (url.indexOf('www.vimeo') !== -1) {
-    source.setAttribute('src', url);
-    source.setAttribute('src', "https://vimeo.com/channels/staffpicks/194312144");
-  }else {
-     source.setAttribute('src', "https://www.youtube.com/embed/MtJ0lrIGSAE");
-  }
+   if (url.indexOf('www.youtube') !== -1) {
+      source.setAttribute('src', url);
+      setURLVideo(url.replace("embed/", "watch?v="));
+    }else if (url.indexOf('www.vimeo') !== -1) {
+      source.setAttribute('src', url);
+      source.setAttribute('src', "https://vimeo.com/channels/staffpicks/194312144");
+    }else {
+      source.setAttribute('src', "https://www.youtube.com/embed/MtJ0lrIGSAE");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

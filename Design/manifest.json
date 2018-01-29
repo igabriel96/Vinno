@@ -14,8 +14,8 @@
     		"js": ["content.js"]
   		}
 	],
-	
-	"icons": { 
+
+	"icons": {
 		      "16": "Itachi.png",
         	"48": "Itachi.png",
         	"128": "Itachi.png",
