@@ -1,0 +1,35 @@
+{
+  	"manifest_version": 2,
+  	"name": "Vinno (Video Annotation Tool)",
+    "description": "instrument Web pentru adnotarea conţinuturilor video redate utilizatorului",
+	"version": "0.1",
+	"permissions": [ "activeTab" ,"storage" ],
+	"content_scripts": [
+  		{
+    		"matches": [
+      			"<all_urls>"
+    		],
+    		"js": ["content.js"]
+  		}
+	],
+	
+	"icons": { 
+		"16": "Itachi.png",
+        	"48": "Itachi.png",
+        	"128": "Itachi.png" 
+    	},
+
+	"background": {
+  		"scripts": [
+    		"background.js"
+  		]
+	},
+
+  	"browser_action": {
+    	"default_title": "Vinno",
+      "default_locale": "en",
+   		"default_popup": "popup.html",
+      "chrome": { "navigation": true }
+  	}
+
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scholarly HTML — Vinno</title>
+    <link rel="stylesheet" href="scholarly.css">
+  </head>
+  <body>
+    <header>
+      <h1>Scholarly HTML - Vinno</h1>
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+      <section id="introducere">
+        <h3>Introducere</h3>
+        <p>Scopul acestui raport tehnic in format Scholarly HTML este de a descrie detaliile care vizează progresul proiectului intitulat Vinno.    
+        </p>        
+      </section>
+
+      <section id="descriere">
+        <h3>Descriere proiect Vinno</h3>
+        <p>Se doreşte implementarea unui instrument Web (eventual, o extensie de navigator sau componentă Web) pentru adnotarea conţinuturilor video redate utilizatorului. O adnotare poate include termeni de conţinut (tag-uri) sau poate avea ataşate resurse specifice: imagini, alte melodii, videoclip-uri, coordonate geografice, persoane ce au contribuit la acel conţinut (de exemplu, compozitor sau interpret) etc. Sistemul va putea realiza managementul tuturor adnotărilor specificate de un utilizator cu posibilitatea exportării acestora în formate CSV, JSON şi XML.</p>
+      </section>
+
+      <section id="obiective">
+        <h3>Obiective</h3>
+        <p>Instrumentul nostru web  urmarește punerea la dispoziție a utilizatorului posibilitatea de a adăuga adnotări unor resurse video similar cu adnotările care se pot adăuga la video-urile de pe situl https://www.youtube.com. De asemenea, utilizatorul va avea posibilitatea de a exporta adnotările create de acesta în format CSV, JSON și XML.  
+        </p>        
+      </section>
+
+      <section id="metode">
+        <h3>Metode folosite</h3>
+        <p>Pentru a putea detalia tehnologiile folosite în cadrul aplicației este necesară reamintirea unor noțiuni teoretice utilizate în dezvoltarea site-ului.
+        </p>
+        <p>Interfața a fost construită folosind HTML5 și stilizată folosind CSS3. HTML5 este un limbaj pentru structurarea și prezentarea conținutului pentru World Wide Web, o tehnologie nucleu pentru Internet, iar CSS reprezinta acronimul pentru Cascading Style Sheets. CSS este un limbaj (style language) care definește "layout-ul" pentru documentele HTML. CSS acoperă culori, font-uri, margini, linii, imagini de fundal, poziții avansate și multe alte opțiuni utile în design.</p>
+        <p>JavaScript (JS) este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor. Este folosit mai ales pentru introducerea unor funcționalități în paginile web, codul JavaScript din aceste pagini fiind rulat de către browser. Limbajul este binecunoscut pentru folosirea sa în construirea siturilor web, dar este folosit și pentru accesul la obiecte încastrate (embedded objects) în alte aplicații</p>
+        <p>JSON este un acronim în limba engleză pentru JavaScript Object Notation, și este un format de reprezentare și interschimb de date între aplicații informatice. Este un format text, inteligibil pentru oameni, utilizat pentru reprezentarea obiectelor și a altor structuri de date și este folosit în special pentru a transmite date structurate prin rețea, procesul purtând numele de serializare. JSON este alternativa mai simplă, mai facilă decât limbajul XML. Eleganța formatului JSON provine din faptul că este un subset al limbajului JavaScript.
+        </p>
+      </section>
+
+      <section id="utilizare">
+        <h3>Mod de utilizare</h3>
+        <p>Extensia conține o listă cu cea ce poate face utilizatorul și anume crearea de adnotări, export și Load</p>
+        <ul>
+          <li>
+            Add Annotation: Utilizatorului i se va pune la dispoziție un meniu cu posibilitățile de a adăuga adnotări.
+          </li>
+          <li>
+            Management Annotation: Utilizatorul va putea modifica sau șterge adnotările făcute.
+          </li>
+          <li>
+            Export Annotation: Utilizatorul va putea face export în formatul CSV, JSON și XML.
+          </li>
+          <li>
+            Show Annotation: Utilizatorul va avea acces la adnotările făcute și de asemenea tilizatorul va putea opri sau porni vizualizarea adnotărilor.
+          </li>
+        </ul>
+        <p>În meniul cu adnotări utilizatorul va avea acces la video și va avea următoarele opțiuni, cum ar fi posibilitatea de a adăuga tag-uri, imagini, video-uri etc.</p>
+        <ul>
+          <li>
+            Input nume adnotare: Utilizatorul va putea adăuga o denumire adnotări.
+          </li>
+          <li>
+            Tag: Utilizatorul va avea posibilitatea de a adăuga tag-uri.
+          </li>
+          <li>
+            Poziție Geografică: Utilizatorul va putea adăuga coordonate pentru a se putea identifica locația din video.
+          </li>
+          <li>
+            Videoclipuri: Utilizatorul va putea adăuga conținut grafic sau audio.
+          </li>
+          <li>
+            Autori: Utilizatorul va putea adăuga detalii despre autorul original al video-ului.
+          </li>
+          <li>
+            Submit: În urma apăsării butonului informațiile vor fi salvate într-un fișier JSON.
+          </li>
+        </ul>
+      </section>
+      <section id="descriere">
+        <h3>API-uri externe</h3>
+        <p>De asemenea în cadrul echipei s-a luat decizia de a se folosi chrome.storage pentru salvarea adnotărilor.
+        Chrome Storage este un web storage folosit de Chrome, de asemenea web storage-ul permite API-urilor de a stoca date 
+        într-un browser web.
+        În cadrul echipei s-a decis folosirea următoarei imagini pentru reprezentarea proiectului.</p>
+        
+      <figure>
+        <img src="Itachi.png" id="Icony">
+          <figcaption>
+            Imaginea de fundal a extensiei.
+          </figcaption>
+      </figure>
+      </section>
+      <section id="bibliografie">
+        <h3>Bibliografie</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Denumire</th>
+                  <th>URL</th>
+                </tr>
+              </thead>
+              <tr>
+                <td>E-learn</td>
+                <td>http://www.e-learn.ro/tutorial/css/ce-este-css-a/67/1/37.htm</td>
+              </tr>
+              <tr>
+                <td>Wikipedia</td>
+                <td>https://en.wikipedia.org/wiki/JavaScript</td>
+              </tr>
+              <tr>
+                <td>Scholarly</td>
+                <td>http://scholarly.vernacular.io/</td>
+              </tr>
+              <tr>
+                <td>JavaScript manual</td>
+                <td>https://javascript.info/</td>
+              </tr>
+              <tr>
+                <td>Lista Proiecte</td>
+                <td>https://profs.info.uaic.ro/~busaco/teach/courses/cliw/projects/</td>
+              </tr>
+              <tr>
+                <td>Chrome Storage</td>
+                <td>https://developer.chrome.com/apps/storage</td>
+              </tr>
+            </table>    
+      </section>
+    </article>
+    <footer>
+      <p><a href="https://profs.info.uaic.ro/~busaco/teach/courses/cliw/">Dezvoltarea aplicaţiilor Web la nivel de client 2017-2018</a>
+        •
+        <a href="https://github.com/igabriel96/Vinno">Github Repository</a>
+        •
+        <a href="http://www.info.uaic.ro/bin/Main/">UAIC - Facultatea de Informatica Iasi</a>
+      </p>
+    </footer>
+  </body>
+</html>
