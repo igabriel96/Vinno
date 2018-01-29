@@ -1,6 +1,7 @@
 {
   	"manifest_version": 2,
   	"name": "Vinno (Video Annotation Tool)",
+    "description": "instrument Web pentru adnotarea conţinuturilor video redate utilizatorului",
 	"version": "0.1",
 	"permissions": [ "activeTab" ,"storage" ],
 	"content_scripts": [
@@ -26,8 +27,9 @@
 
   	"browser_action": {
     	"default_title": "Vinno",
-    
-   		"default_popup": "popup.html"
+      "default_locale": "en",
+   		"default_popup": "popup.html",
+      "chrome": { "navigation": true }
   	}
 
 }
