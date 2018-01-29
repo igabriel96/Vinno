@@ -1,5 +1,14 @@
 var tab_title = '';
 var URL = '';
+var urlVideo;
+
+function getURLVideo() {
+  return urlVideo;
+}
+
+function setURLVideo(data) {
+  urlVideo = data;
+}
 
 function display_h1(results) {
   source = document.getElementById('video');
@@ -10,6 +19,7 @@ function display_h1(results) {
 
   if (url.indexOf('www.youtube') !== -1) {
     source.setAttribute('src', url);
+    setURLVideo(url.replace("embed/", "watch?v="));
   }else if (url.indexOf('www.vimeo') !== -1) {
     source.setAttribute('src', url);
     source.setAttribute('src', "https://vimeo.com/channels/staffpicks/194312144");
@@ -31,13 +41,15 @@ chrome.tabs.query({active: true}, function(tabs) {
 });
 
 function saveAnnotation() {
+  var videoURL = getURLVideo();
+
   var annotationObject = {
       'annotation_name': document.getElementById('annotation_name').value,
       'tags': document.getElementById('tags').value,
       'geo_cord': document.getElementById('geo_cord').value,
       'link': document.getElementById('link').value,
       'notes': document.getElementById('notes').value,
-      'videoURL': document.URL,
+      'videoURL': videoURL,
   };
 
   localStorage.setItem('annotation_' + localStorage.length, JSON.stringify(annotationObject));

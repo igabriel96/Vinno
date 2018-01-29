@@ -20,11 +20,11 @@ function display_h1 (results) {
      source.setAttribute('src', "https://www.youtube.com/watch?v=MtJ0lrIGSAE");
   }
 }
+
 //add handler for submit button
 document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('button').addEventListener('click', saveAnnotation);
     });
-
 
 chrome.tabs.query({active: true}, function(tabs) {
   var tab = tabs[0];
@@ -46,7 +46,6 @@ function saveAnnotation() {
       'link': document.getElementById('link').value,
       'notes': document.getElementById('notes').value,
   };
-
 
   // Save it using the Chrome extension storage API.
   chrome.storage.sync.set({[URL]:annotationObject}, function() {
