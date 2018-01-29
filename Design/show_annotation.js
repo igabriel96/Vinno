@@ -5,7 +5,18 @@ function display_h1 (results) {
   URL = results[0];
   URL = URL.replace("watch?v=", "embed/");
 
-  insertAnnotation(URL);
+  for (var index = 0; index < localStorage.length; index++) {
+    URL = URL.replace("embed/", "watch?v=");
+
+    var key = localStorage.key(index);
+    var adnotare = localStorage.getItem(key);
+    var jsonData = JSON.parse(adnotare);
+
+    if (URL === jsonData.videoURL) {
+      insertAnnotation(key);
+    }
+  }
+
   window.location = "popup.html";
 }
 
@@ -17,20 +28,16 @@ chrome.tabs.query({active: true}, function(tabs) {
   }, display_h1);
 });
 
-function insertAnnotation(URL) {
-  URL = URL.replace("embed/", "watch?v=");
-
-  for (var index = 0; index < localStorage.length; index++) {
-    var key = localStorage.key(index);
+function insertAnnotation(key) {
     var adnotare = localStorage.getItem(key);
     var jsonData = JSON.parse(adnotare);
 
-    if (URL = jsonData.videoURL) {
-     chrome.tabs.query({active: true}, function(tabs) {
+      chrome.tabs.query({active: true}, function(tabs) {
         var tab = tabs[0];
         tab_title = tab.title;
 
-        var script_code = "var elem = document.createElement('div');"
+        var script_code = "";
+        script_code = "var elem = document.createElement('div');"
         script_code += 'elem.innerHTML="<label style=\\"color: white\\">Annotation Name:</label>'
         + '<p style=\\"color:red\\" id=\\"annotation_name\\">' + jsonData.annotation_name +
         '</p><label style=\\"color: white\\">Tags:</label><p style=\\"color:red\\" id=\\"tags\\">' +
@@ -47,6 +54,4 @@ function insertAnnotation(URL) {
           console.log("Insert succesfuly");
         });
       });
-    }
-  }
 }
